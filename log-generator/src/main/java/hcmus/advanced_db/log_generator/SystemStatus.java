@@ -3,16 +3,16 @@ package hcmus.advanced_db.log_generator;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-public enum RunMode {
-    HEAlTHY("healthy"),
-    UNHEALTHY("unhealthy");
+public enum SystemStatus {
+    OK("ok"),
+    ERROR("error");
 
-    RunMode(final String name) {
+    SystemStatus(final String name) {
         this.name = name;
     }
 
-    public static RunMode fromString(final String name) {
-        for (final RunMode mode : RunMode.values()) {
+    public static SystemStatus fromString(final String name) {
+        for (final SystemStatus mode : SystemStatus.values()) {
             if (mode.name.equals(name)) {
                 return mode;
             }
@@ -20,7 +20,7 @@ public enum RunMode {
         throw new RuntimeException(String
                 .format("Unknown mode '%s'. Supported mode are %s", 
                         name, 
-                        Arrays.asList(RunMode.values())
+                        Arrays.asList(SystemStatus.values())
                             .stream()
                             .map(dataCenter -> dataCenter.name)
                             .collect(Collectors.toList())));

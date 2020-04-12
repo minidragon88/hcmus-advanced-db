@@ -5,3 +5,15 @@ plugins {
 application {
     mainClassName = "hcmus.advanced_db.log_generator.Generator"
 }
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("com.google.code.gson:gson:2.8.5")
+    // https://mvnrepository.com/artifact/org.yaml/snakeyaml
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.26'
+    compile group: 'com.google.guava', name: 'guava', version: '28.2-jre'
+    
+}

@@ -3,17 +3,18 @@ This module is a stand alone Java application for generating log and sending dat
 
 # Prerequisite
 Java version >= 1.8
+
 Gradle version >= 4.9
 
 # Run
 ```
-./gradlew run --args='host_name healthy'
+./gradlew run --args='host_name ok'
 ```
 
 Example
 
 ```
-./gradlew run --args='0.0.0.1 healthy'
+./gradlew run --args='0.0.0.1 ok'
 
-./gradlew run --args='0.0.0.2 unhealthy'
+./gradlew run --args='0.0.0.2 error'
 ```
