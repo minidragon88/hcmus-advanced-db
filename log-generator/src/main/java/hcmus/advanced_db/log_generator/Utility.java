@@ -48,18 +48,7 @@ public final class Utility {
         return Math.min(initial + incrementalValue * currentLoop, remaining);
     }
     
-    public static HostDetail generateHostDetail()
-    {
-        final String host = CONFIG.getHost();
-        final HostDetail hostDetail = new HostDetail(CONFIG.getHost());
-        for (final String process : CONFIG.getNormal_processes()) {
-            hostDetail.addProcess(new ProcessDetail(host, process, getProcessOwner(), normalProcessValue(), normalProcessValue()));
-        }
-        hostDetail.addProcess(new ProcessDetail(host, CONFIG.getMacilious_process(), getProcessOwner(), normalProcessValue(), normalProcessValue()));
-        return hostDetail;
-    }
-    
-    public static void updateHostDetail(final HostDetail hostDetail, final int currentLoop)
+    public static void updateMalaciousHost(final HostDetail hostDetail, final int currentLoop)
     {
         final int increasementalTime = CONFIG.getIncreasemental();
         ProcessDetail maliciousProcess = null;
@@ -75,5 +64,13 @@ public final class Utility {
         maliciousProcess.setMem(0);
         maliciousProcess.setCpu(maciliousProcessValue(currentLoop, increasementalTime, 100 - hostDetail.getOverallCpu()));
         maliciousProcess.setMem(maciliousProcessValue(currentLoop, increasementalTime, 100 - hostDetail.getOverallMemory()));
+    }
+    
+    public static void updateNormalHost(final HostDetail hostDetail)
+    {
+        for (final ProcessDetail process : hostDetail.getProcesses()) {
+            process.setCpu(normalProcessValue());
+            process.setMem(normalProcessValue());
+        }
     }
 }

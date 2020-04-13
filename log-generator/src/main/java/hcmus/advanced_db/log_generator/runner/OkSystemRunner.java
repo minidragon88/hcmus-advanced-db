@@ -1,14 +1,18 @@
 package hcmus.advanced_db.log_generator.runner;
 
-public class OkSystemRunner implements IRunner {
+import hcmus.advanced_db.log_generator.OutputMode;
+import hcmus.advanced_db.log_generator.Utility;
 
-    @Override
-    public void sendMetrics() {
-        System.out.println("OK Metrics");
+public class OkSystemRunner extends AbstractRunner {
+
+    public OkSystemRunner(final OutputMode outputMode) {
+        super(outputMode);
     }
 
     @Override
-    public void sendHeartBeat() {
-        System.out.println("OK HeartBeat");
+    public void changeStateAndSendData(final int currentLoop) {
+        Utility.updateNormalHost(hostDetail);
+        sendMetrics();
+        sendHeartBeat();
     }
 }

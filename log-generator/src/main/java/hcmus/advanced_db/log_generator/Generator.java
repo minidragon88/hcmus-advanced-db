@@ -2,7 +2,9 @@ package hcmus.advanced_db.log_generator;
 
 import java.io.FileNotFoundException;
 
-import hcmus.advanced_db.log_generator.model.HostDetail;
+import hcmus.advanced_db.log_generator.runner.AbstractRunner;
+import hcmus.advanced_db.log_generator.runner.ErrorSystemRunner;
+import hcmus.advanced_db.log_generator.runner.OkSystemRunner;
 
 public class Generator {
 
@@ -13,14 +15,16 @@ public class Generator {
         final String hostName = args[0];
         final SystemStatus systemStatus = SystemStatus.fromString(args[1]);
         Constants.CONFIG.setHost(hostName);
-        System.out.println(hostName);
-        System.out.println(systemStatus);
-        System.out.println(Utility.loadConfig());
-        final HostDetail detail = HostDetail.newHostDetail();
-        System.out.println(Constants.YMAL.dump(detail));
-        Utility.updateHostDetail(detail, 5);
-        System.out.println(Constants.YMAL.dump(detail));
-        Utility.updateHostDetail(detail, 100);
-        System.out.println(Constants.YMAL.dump(detail));
+        AbstractRunner runner = null;
+        switch (systemStatus) {
+        case OK:
+            runner = new OkSystemRunner(OutputMode.REST);
+            break;
+
+        default:
+            runner = new ErrorSystemRunner(OutputMode.REST);
+            break;
+        }
+        runner.process();
     }
 }
