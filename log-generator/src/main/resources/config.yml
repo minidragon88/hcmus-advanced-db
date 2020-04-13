@@ -4,7 +4,7 @@ normal_processes:
   - node
   - syslogd
   - svchost
-macilious_processes:
-  - minerd
-loopTime: 8
-sleepTimePerLoop: 8
+macilious_process: minerd
+loop: 8
+increasemental: 5
+sleepPerLoop: 8
