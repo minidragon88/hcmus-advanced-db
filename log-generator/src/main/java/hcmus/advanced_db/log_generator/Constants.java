@@ -10,7 +10,7 @@ import hcmus.advanced_db.log_generator.model.Configuration;
 
 public class Constants {
     private Constants() {}
-    public static final Yaml YMAL = new Yaml();
+    public static final Yaml YAML = new Yaml();
     public static final Gson GSON = new Gson();
     public static final Configuration CONFIG = Utility.loadConfig();
     public static final double MAX_NORMAL_VALUE = 500;

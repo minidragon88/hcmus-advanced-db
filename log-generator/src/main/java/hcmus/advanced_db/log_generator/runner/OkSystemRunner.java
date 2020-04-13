@@ -12,6 +12,7 @@ public class OkSystemRunner extends AbstractRunner {
     @Override
     public void changeStateAndSendData(final int currentLoop) {
         Utility.updateNormalHost(hostDetail);
+        logDetailInformation();
         sendMetrics();
         sendHeartBeat();
     }

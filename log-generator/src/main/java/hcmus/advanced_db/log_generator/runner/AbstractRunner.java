@@ -1,5 +1,8 @@
 package hcmus.advanced_db.log_generator.runner;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.google.gson.JsonObject;
 
 import hcmus.advanced_db.log_generator.Constants;
@@ -10,6 +13,7 @@ import hcmus.advanced_db.log_generator.runner.output.IOutput;
 import hcmus.advanced_db.log_generator.runner.output.RestOutput;
 
 public abstract class AbstractRunner {
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractRunner.class);
     protected IOutput output;
     protected HostDetail hostDetail;
     public AbstractRunner(final OutputMode outputMode) {
@@ -30,6 +34,7 @@ public abstract class AbstractRunner {
         for (int currentLoop = 1; currentLoop <= Constants.CONFIG.getLoop(); currentLoop++) {
             changeStateAndSendData(currentLoop);
             try {
+                LOGGER.info("Waiting for next time to send data");
                 Thread.sleep(Constants.CONFIG.getSleepPerLoop() * 1000);
             } catch (final InterruptedException e) {
                 e.printStackTrace();
@@ -39,12 +44,18 @@ public abstract class AbstractRunner {
     
     protected void sendMetrics()
     {
+        LOGGER.info("Sending metrics");
         for (final ProcessDetail process : hostDetail.getProcesses()) {
             output.flushData((JsonObject) Constants.GSON.toJsonTree(process));
         }
     }
     protected void sendHeartBeat() {
-        System.out.println(Constants.YMAL.dump(hostDetail));
+        LOGGER.info("Sending heart beat");
         output.flushData((JsonObject) Constants.GSON.toJsonTree(hostDetail));
+    }
+    
+    protected void logDetailInformation() {
+        LOGGER.info("Current host information");
+        LOGGER.info(Constants.YAML.dump(hostDetail));
     }
 }

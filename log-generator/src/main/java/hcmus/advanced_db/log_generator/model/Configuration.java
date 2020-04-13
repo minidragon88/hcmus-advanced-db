@@ -1,6 +1,6 @@
 package hcmus.advanced_db.log_generator.model;
 
-import static hcmus.advanced_db.log_generator.Constants.YMAL;
+import static hcmus.advanced_db.log_generator.Constants.YAML;
 import java.util.List;
 
 public class Configuration {
@@ -62,6 +62,6 @@ public class Configuration {
 
     @Override
     public String toString() {
-        return YMAL.dump(this);
+        return YAML.dump(this);
     }
 }

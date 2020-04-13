@@ -3,7 +3,7 @@ package hcmus.advanced_db.log_generator;
 import static hcmus.advanced_db.log_generator.Constants.CONFIG;
 import static hcmus.advanced_db.log_generator.Constants.MIN_NORMAL_VALUE;
 import static hcmus.advanced_db.log_generator.Constants.ONE_POINT_DECIMAL_FORMAT;
-import static hcmus.advanced_db.log_generator.Constants.YMAL;
+import static hcmus.advanced_db.log_generator.Constants.YAML;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public final class Utility {
     public static Configuration loadConfig()
     {
         try(FileReader reader = new FileReader(Resources.getResource("config.yml").getPath())){
-            return YMAL.loadAs(new FileReader(Resources.getResource("config.yml").getPath()), Configuration.class);
+            return YAML.loadAs(new FileReader(Resources.getResource("config.yml").getPath()), Configuration.class);
         } catch (final IOException e) {
             throw new RuntimeException(e.getMessage());
         }
