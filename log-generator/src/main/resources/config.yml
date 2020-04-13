@@ -1,3 +1,10 @@
-# Preserve for runtime configuration
-test: abc
-test2: test
+normal_processes:
+  - mysql
+  - WindowServer
+  - node
+  - syslogd
+  - svchost
+macilious_processes:
+  - minerd
+loopTime: 8
+sleepTimePerLoop: 8
