@@ -7,19 +7,21 @@ public enum SystemStatus {
     OK("ok"),
     ERROR("error");
 
-    SystemStatus(final String name) {
+    SystemStatus(final String name)
+    {
         this.name = name;
     }
 
-    public static SystemStatus fromString(final String name) {
+    public static SystemStatus fromString(final String name)
+    {
         for (final SystemStatus mode : SystemStatus.values()) {
             if (mode.name.equals(name)) {
                 return mode;
             }
         }
         throw new RuntimeException(String
-                .format("Unknown mode '%s'. Supported mode are %s", 
-                        name, 
+                .format("Unknown mode '%s'. Supported mode are %s",
+                        name,
                         Arrays.asList(SystemStatus.values())
                             .stream()
                             .map(dataCenter -> dataCenter.name)

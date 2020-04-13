@@ -1,10 +1,10 @@
-normal_processes:
+normalProcesses:
   - mysql
   - WindowServer
   - node
   - syslogd
   - svchost
-macilious_process: minerd
+maciliousProcess: minerd
 loop: 8
 increasemental: 5
 sleepPerLoop: 8

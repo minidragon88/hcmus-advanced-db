@@ -1,14 +1,13 @@
 package hcmus.advanced_db.log_generator;
 
-import java.text.DecimalFormat;
-
+import com.google.gson.Gson;
+import hcmus.advanced_db.log_generator.model.Configuration;
 import org.yaml.snakeyaml.Yaml;
 
-import com.google.gson.Gson;
+import java.text.DecimalFormat;
 
-import hcmus.advanced_db.log_generator.model.Configuration;
-
-public class Constants {
+public class Constants
+{
     private Constants() {}
     public static final Yaml YAML = new Yaml();
     public static final Gson GSON = new Gson();
