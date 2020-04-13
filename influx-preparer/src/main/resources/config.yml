@@ -1,1 +1,11 @@
-test: 1
+serverUrl: http://localhost:8086
+username: ""
+password: ""
+databaseName: hcmus
+series:
+  - name: metrics
+    data: host=hostname process=process1 owner=userA cpu=1.0 memory=1.0
+  - name: heartbeats
+    data: host=hostname cpu=1.0 memory=1.0
+dropOldSeries: true
+continuousQueries: []

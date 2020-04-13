@@ -8,5 +8,6 @@ public class Preparer
     public static void main(final String[] args) throws FileNotFoundException
     {
         Constants.LOGGER.info("Test");
+        System.out.println(Utility.loadConfig());
     }
 }
