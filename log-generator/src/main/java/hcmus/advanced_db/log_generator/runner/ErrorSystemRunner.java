@@ -4,13 +4,10 @@ import hcmus.advanced_db.log_generator.Constants;
 import hcmus.advanced_db.log_generator.OutputMode;
 import hcmus.advanced_db.log_generator.Utility;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static hcmus.advanced_db.log_generator.Constants.LOGGER;
 
 public class ErrorSystemRunner extends AbstractRunner
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ErrorSystemRunner.class);
-
     public ErrorSystemRunner(final OutputMode outputMode)
     {
         super(outputMode);

@@ -2,6 +2,9 @@ package hcmus.advanced_db.log_generator;
 
 import com.google.gson.Gson;
 import hcmus.advanced_db.log_generator.model.Configuration;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;
 
 import java.text.DecimalFormat;
@@ -9,6 +12,7 @@ import java.text.DecimalFormat;
 public class Constants
 {
     private Constants() {}
+    public static final Logger LOGGER = LoggerFactory.getLogger("default");
     public static final Yaml YAML = new Yaml();
     public static final Gson GSON = new Gson();
     public static final Configuration CONFIG = Utility.loadConfig();

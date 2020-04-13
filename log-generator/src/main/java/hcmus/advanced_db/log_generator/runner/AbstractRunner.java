@@ -9,12 +9,10 @@ import hcmus.advanced_db.log_generator.model.ProcessDetail;
 import hcmus.advanced_db.log_generator.runner.output.IOutput;
 import hcmus.advanced_db.log_generator.runner.output.RestOutput;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static hcmus.advanced_db.log_generator.Constants.LOGGER;
 
 public abstract class AbstractRunner
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractRunner.class);
     protected IOutput output;
     protected HostDetail hostDetail;
 
