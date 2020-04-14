@@ -6,6 +6,8 @@ measures:
   - name: metrics
     tags :
       - host
+      - process
+      - owner
     schema:
       host: string
       process: string
