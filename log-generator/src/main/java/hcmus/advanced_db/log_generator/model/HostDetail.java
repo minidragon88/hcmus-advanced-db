@@ -59,4 +59,9 @@ public class HostDetail
     {
         return String.format("host=%s, cpu=%s, mem=%s", host, getOverallCpu(), getOverallMemory());
     }
+
+    public String toLineProtocol()
+    {
+        return String.format("metrics,host=%s cpu=%s memory=%s", host, getOverallCpu(), getOverallCpu());
+    }
 }

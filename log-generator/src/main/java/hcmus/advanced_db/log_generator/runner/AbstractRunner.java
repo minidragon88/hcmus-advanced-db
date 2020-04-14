@@ -1,7 +1,5 @@
 package hcmus.advanced_db.log_generator.runner;
 
-import com.google.gson.JsonObject;
-
 import hcmus.advanced_db.log_generator.Constants;
 import hcmus.advanced_db.log_generator.OutputMode;
 import hcmus.advanced_db.log_generator.model.HostDetail;
@@ -49,14 +47,14 @@ public abstract class AbstractRunner
     {
         LOGGER.info("Sending metrics");
         for (final ProcessDetail process : hostDetail.getProcesses()) {
-            output.flushData((JsonObject) Constants.GSON.toJsonTree(process));
+            output.flushData(process.toLineProtocol());
         }
     }
 
     protected void sendHeartBeat()
     {
         LOGGER.info("Sending heart beat");
-        output.flushData((JsonObject) Constants.GSON.toJsonTree(hostDetail));
+        output.flushData(hostDetail.toLineProtocol());
     }
 
     protected void logDetailInformation()
