@@ -75,6 +75,6 @@ public class ProcessDetail
 
     public String toLineProtocol()
     {
-        return String.format("metrics,host=%s,process=%s,owner=%s cpu=%s,memory=%s", host, name, owner, cpu, mem);
+        return String.format("metrics,host=%s process=\"%s\",owner=\"%s\",cpu=%s,memory=%s", host, name, owner, cpu, mem);
     }
 }
