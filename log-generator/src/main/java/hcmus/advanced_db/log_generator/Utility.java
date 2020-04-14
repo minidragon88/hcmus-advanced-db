@@ -5,12 +5,16 @@ import com.google.common.io.Resources;
 import hcmus.advanced_db.log_generator.model.Configuration;
 import hcmus.advanced_db.log_generator.model.HostDetail;
 import hcmus.advanced_db.log_generator.model.ProcessDetail;
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 import static hcmus.advanced_db.log_generator.Constants.CONFIG;
 import static hcmus.advanced_db.log_generator.Constants.MIN_NORMAL_VALUE;
@@ -20,6 +24,24 @@ import static hcmus.advanced_db.log_generator.Constants.YAML;
 public final class Utility
 {
     private Utility() {}
+
+    private static final long TIME_OUT = 300L;
+
+    public static Retrofit getRetrofitInstance(final String serverUrl)
+    {
+        final OkHttpClient okHttpClient  =
+                new OkHttpClient()
+                    .newBuilder()
+                    .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
+                    .readTimeout(TIME_OUT, TimeUnit.SECONDS)
+                    .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
+                    .build();
+        return new Retrofit.Builder()
+                .baseUrl(serverUrl)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
 
     public static Configuration loadConfig()
     {

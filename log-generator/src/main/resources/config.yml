@@ -8,3 +8,7 @@ maciliousProcess: minerd
 loop: 8
 increasemental: 5
 sleepPerLoop: 8
+serverUrl: http://localhost:8086
+username: user
+password: password
+databaseName: hcmus

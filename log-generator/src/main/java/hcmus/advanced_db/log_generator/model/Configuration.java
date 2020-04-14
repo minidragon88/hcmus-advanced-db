@@ -12,6 +12,10 @@ public class Configuration
     private int increasemental = 5;
     private long sleepPerLoop = 5;
     private String host;
+    private String serverUrl;
+    private String username;
+    private String password;
+    private String databaseName;
 
     public List<String> getNormalProcesses()
     {
@@ -71,6 +75,46 @@ public class Configuration
     public void setHost(final String host)
     {
         this.host = host;
+    }
+
+    public String getServerUrl()
+    {
+        return serverUrl;
+    }
+
+    public void setServerUrl(final String serverUrl)
+    {
+        this.serverUrl = serverUrl;
+    }
+
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername(final String username)
+    {
+        this.username = username;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(final String password)
+    {
+        this.password = password;
+    }
+
+    public String getDatabaseName()
+    {
+        return databaseName;
+    }
+
+    public void setDatabaseName(final String databaseName)
+    {
+        this.databaseName = databaseName;
     }
 
     @Override
