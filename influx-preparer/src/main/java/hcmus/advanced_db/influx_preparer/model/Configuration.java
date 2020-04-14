@@ -10,8 +10,8 @@ public class Configuration
     private String username;
     private String password;
     private String databaseName;
-    private List<Serie> series;
-    private boolean dropOldSeries;
+    private List<Measure> measures;
+    private String measureAction;
     private List<String> continuousQueries;
 
     public String getServerUrl()
@@ -53,24 +53,24 @@ public class Configuration
         this.databaseName = databaseName;
     }
 
-    public List<Serie> getSeries()
+    public List<Measure> getMeasures()
     {
-        return series;
+        return measures;
     }
 
-    public void setSeries(final List<Serie> series)
+    public void setMeasures(final List<Measure> measures)
     {
-        this.series = series;
+        this.measures = measures;
     }
 
-    public boolean isDropOldSeries()
+    public String getMeasureAction()
     {
-        return dropOldSeries;
+        return measureAction;
     }
 
-    public void setDropOldSeries(final boolean dropOldSeries)
+    public void setMeasureAction(final String measureAction)
     {
-        this.dropOldSeries = dropOldSeries;
+        this.measureAction = measureAction;
     }
 
     public List<String> getContinuousQueries()

@@ -1,11 +1,33 @@
 serverUrl: http://localhost:8086
-username: ""
-password: ""
+username: user
+password: password
 databaseName: hcmus
-series:
+measures:
   - name: metrics
-    data: host=hostname process=process1 owner=userA cpu=1.0 memory=1.0
+    tags :
+      - host
+    schema:
+      host: string
+      process: string
+      owner: string
+      cpu: double
+      memory: double
+    data:
+      - host: host
+        process: process1
+        owner: userA
+        cpu: 2.0
+        memory: 2.0
   - name: heartbeats
-    data: host=hostname cpu=1.0 memory=1.0
-dropOldSeries: true
+    tags :
+      - host
+    schema:
+      host: string
+      cpu: double
+      memory: double
+    data:
+      - host: host
+        cpu: 2.0
+        memory: 2.0
+measureAction: drop #drop/delete/none
 continuousQueries: []
