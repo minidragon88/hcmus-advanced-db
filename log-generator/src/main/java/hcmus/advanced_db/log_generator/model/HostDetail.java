@@ -62,6 +62,6 @@ public class HostDetail
 
     public String toLineProtocol()
     {
-        return String.format("heartbeats,host=%s cpu=%s,memory=%s", host, getOverallCpu(), getOverallCpu());
+        return String.format("heartbeats,host=%s cpu=%s,memory=%s", host, getOverallCpu(), getOverallMemory());
     }
 }
