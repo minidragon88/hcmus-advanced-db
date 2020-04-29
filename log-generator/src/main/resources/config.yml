@@ -7,6 +7,7 @@ normalProcesses:
 maciliousProcess: minerd
 loop: 8
 increasemental: 5
+stopOnHang: false
 sleepPerLoop: 8
 serverUrl: http://localhost:8086
 username: user

@@ -17,7 +17,7 @@ public class ErrorSystemRunner extends AbstractRunner
     protected void changeStateAndSendData(final int currentLoop)
     {
         // Only flush data in case does not reach 100% utilization
-        if (currentLoop <= Constants.CONFIG.getIncreasemental()) {
+        if (currentLoop <= Constants.CONFIG.getIncreasemental() || !Constants.CONFIG.isStopOnHang()) {
             Utility.updateMalaciousHost(hostDetail, currentLoop);
             logDetailInformation();
             sendMetrics();

@@ -10,6 +10,7 @@ public class Configuration
     private String maciliousProcess;
     private int loop = 5;
     private int increasemental = 5;
+    private boolean stopOnHang = false;
     private long sleepPerLoop = 5;
     private String host;
     private String serverUrl;
@@ -55,6 +56,16 @@ public class Configuration
     public void setIncreasemental(final int increasemental)
     {
         this.increasemental = increasemental;
+    }
+
+    public boolean isStopOnHang()
+    {
+        return stopOnHang;
+    }
+
+    public void setStopOnHang(final boolean stopOnHang)
+    {
+        this.stopOnHang = stopOnHang;
     }
 
     public long getSleepPerLoop()
