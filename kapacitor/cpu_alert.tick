@@ -1,0 +1,13 @@
+dbrp "hcmus"."autogen"
+
+stream
+    // Select the CPU measurement from the `hcmus` database.
+    |from()
+        .measurement('metrics')
+    // Triggers a critical alert when the CPU usage is greater than 89%
+    |alert()
+        .crit(lambda: int("cpu") > 89)
+        .message('Hey, check your CPU')
+	    .email('minhhuekh70@gmail.com')
+        // Write each alert to a file.
+        .log('/tmp/alerts.log')
