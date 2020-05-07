@@ -18,12 +18,15 @@ Ubuntu:
 
 # Configuration
 Replace default configuration file by kapacitor.conf in this project.
+
 Using command below to see current configuration path:
   ```
   kapacitord
   ```
 By default:
+
 MacOS: /usr/local/etc/kapacitor.conf
+
 Ubuntu: /etc/kapacitor/kapacitor.conf
 
 # Start Service
